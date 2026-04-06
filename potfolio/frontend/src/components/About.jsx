@@ -1,8 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Server, Layout, Database } from 'lucide-react';
+import { Code, Server, Layout, Database, PlayCircle, BookOpen, Smartphone } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 
 const About = () => {
+    const stats = [
+        { label: 'Projects Built', value: '3+' },
+        { label: 'Certifications', value: '2' },
+        { label: 'Languages Known', value: '3' },
+        { label: 'Weeks of Training', value: '6+' },
+    ];
+
     return (
         <section id="about" className="py-5 my-5 position-relative">
             <div className="container">
@@ -27,9 +35,10 @@ const About = () => {
                     >
                         <div className="glass-panel p-2 rounded-4 shadow-sm">
                             <img 
-                                src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?fit=crop&w=800&q=80" 
-                                alt="Coding setup" 
+                                src={profileImg} 
+                                alt="Sauraf Kumar" 
                                 className="w-100 rounded-3 object-fit-cover"
+                                style={{ maxHeight: '450px' }}
                             />
                         </div>
                     </motion.div>
@@ -41,47 +50,44 @@ const About = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="col-md-6"
                     >
-                        <h3 className="h2 fw-semibold mb-3">Crafting digital experiences with passion</h3>
+                        <h3 className="h2 fw-semibold mb-3">BCA Graduate & Aspiring IT Professional</h3>
                         <p className="text-secondary mb-4 lh-lg">
-                            I am a dedicated Full Stack Developer with a strong proficiency in modern web technologies. My journey in software development started with a curiosity for how things work on the internet, which quickly turned into a passion for building scalable, user-centric applications.
+                            I'm Sauraf Kumar, a BCA graduate from <strong>DAVV University, Indore</strong> and currently enrolled in the <strong>ITEP (IT Enhancement Program)</strong> at Infobeans Foundation — a 9:30 AM–5:30 PM daily program covering Technical Skills, Aptitude Preparation, and Soft Skills.
                         </p>
-                        <p className="text-secondary mb-5 lh-lg">
-                            Whether it's designing highly interactive frontend interfaces or creating robust backend architectures, I enjoy tackling complex problems and delivering high-quality solutions.
+                        <p className="text-secondary mb-4 lh-lg">
+                            I'm passionate about building modern web applications and actively working toward my goal of entering the IT industry as a <strong>Frontend / Web Developer</strong>. I also run <strong>Saurav Education</strong> on YouTube, creating content for BCA students on DBMS, Java, Computer Networks, and more.
                         </p>
+
+                        {/* Stats */}
+                        <div className="row g-3 mb-4">
+                            {stats.map((s, i) => (
+                                <div key={i} className="col-6">
+                                    <div className="glass-panel rounded-3 p-3 text-center">
+                                        <div className="h3 fw-bold text-primary mb-0">{s.value}</div>
+                                        <div className="small text-secondary">{s.label}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                         
-                        <div className="row g-4">
-                            <div className="col-6">
-                                <div className="d-flex align-items-center gap-3">
-                                    <div className="p-3 bg-primary bg-opacity-10 text-primary rounded-3">
-                                        <Layout size={24} />
+                        <div className="row g-3">
+                            {[
+                                { icon: <Layout size={20} />, label: 'Frontend Dev', color: 'bg-primary' },
+                                { icon: <Server size={20} />, label: 'Backend Dev', color: 'bg-primary' },
+                                { icon: <Database size={20} />, label: 'MySQL & ORM', color: 'bg-success' },
+                                { icon: <Smartphone size={20} />, label: 'Android (Java)', color: 'bg-warning' },
+                                { icon: <PlayCircle size={20} />, label: 'YouTuber', color: 'bg-danger' },
+                                { icon: <BookOpen size={20} />, label: 'DSA & Python', color: 'bg-info' },
+                            ].map((item, i) => (
+                                <div className="col-6" key={i}>
+                                    <div className="d-flex align-items-center gap-2">
+                                        <div className={`p-2 ${item.color} bg-opacity-10 text-${item.color.replace('bg-','')} rounded-3`}>
+                                            {item.icon}
+                                        </div>
+                                        <span className="fw-medium small">{item.label}</span>
                                     </div>
-                                    <span className="fw-medium">Frontend</span>
                                 </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="d-flex align-items-center gap-3">
-                                    <div className="p-3 bg-primary bg-opacity-10 text-primary rounded-3">
-                                        <Server size={24} />
-                                    </div>
-                                    <span className="fw-medium">Backend</span>
-                                </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="d-flex align-items-center gap-3">
-                                    <div className="p-3 bg-success bg-opacity-10 text-success rounded-3">
-                                        <Code size={24} />
-                                    </div>
-                                    <span className="fw-medium">Clean Code</span>
-                                </div>
-                            </div>
-                            <div className="col-6">
-                                <div className="d-flex align-items-center gap-3">
-                                    <div className="p-3 bg-danger bg-opacity-10 text-danger rounded-3">
-                                        <Database size={24} />
-                                    </div>
-                                    <span className="fw-medium">Databases</span>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </motion.div>
                 </div>

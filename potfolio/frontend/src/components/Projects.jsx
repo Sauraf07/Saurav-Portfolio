@@ -1,26 +1,41 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+import { ExternalLink, Code, Smartphone, Brain } from 'lucide-react';
 
 const Projects = () => {
     const [projects] = useState([
         {
             _id: '1',
-            title: 'Job Portal Application',
-            description: 'A full-stack Job Portal using modern technologies.',
-            image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop',
-            techStack: ['React', 'Node.js', 'Express', 'MongoDB'],
+            title: 'Tech Career Navigator',
+            description: 'A full-stack career guidance web app with a dark "mission control" theme. Features user authentication (JWT), career guidance dashboard, and complete CRUD operations.',
+            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+            techStack: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'JWT'],
             githubLink: '#',
-            liveLink: '#'
+            liveLink: '#',
+            icon: <Code size={16} />,
+            tag: 'Full Stack'
         },
         {
             _id: '2',
-            title: 'E-commerce Platform',
-            description: 'A scalable application with shopping cart and payment integration.',
-            image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2065&auto=format&fit=crop',
-            techStack: ['Next.js', 'Bootstrap', 'Firebase'],
+            title: 'HealthCare Plus',
+            description: 'An Android health application built in Java with XML layouts. Complete Android Studio project structure with modern UI components and health tracking features.',
+            image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop',
+            techStack: ['Java', 'XML', 'Android Studio', 'Android SDK'],
             githubLink: '#',
-            liveLink: '#'
+            liveLink: null,
+            icon: <Smartphone size={16} />,
+            tag: 'Android'
+        },
+        {
+            _id: '3',
+            title: 'AI Presentation — Our Smart Helper',
+            description: 'An 11-slide professional PowerPoint presentation on Artificial Intelligence, designed with a modern dark navy/cyan theme covering AI concepts for educational purposes.',
+            image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop',
+            techStack: ['Generative AI', 'IBM Watsonx', 'IBM Granite', 'Python'],
+            githubLink: null,
+            liveLink: null,
+            icon: <Brain size={16} />,
+            tag: 'AI / IBM SkillsBuild'
         }
     ]);
 
@@ -49,6 +64,9 @@ const Projects = () => {
                 >
                     <h2 className="display-5 fw-bold mb-3">Featured Projects</h2>
                     <div className="bg-primary mx-auto rounded-pill" style={{ width: '60px', height: '4px' }}></div>
+                    <p className="text-secondary mt-3 mx-auto" style={{ maxWidth: '550px' }}>
+                        Real-world projects built across web, mobile, and AI domains during my learning journey.
+                    </p>
                 </motion.div>
 
                 <motion.div 
@@ -60,14 +78,19 @@ const Projects = () => {
                 >
                     {projects.map((project) => (
                         <motion.div key={project._id} variants={itemVariants} className="col-md-6 col-lg-4">
-                            <div className="card h-100 glass-panel border-0 shadow-sm overflow-hidden text-decoration-none group hover-lift">
+                            <div className="card h-100 glass-panel border-0 shadow-sm overflow-hidden group hover-lift">
                                 <div className="position-relative overflow-hidden" style={{ height: '200px' }}>
                                     <img 
-                                        src={project.image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?fit=crop&w=800&q=80"} 
+                                        src={project.image} 
                                         alt={project.title} 
-                                        className="w-100 h-100 object-fit-cover transition-transform duration-500 hover-scale"
+                                        className="w-100 h-100 object-fit-cover hover-scale"
                                     />
-                                    <div className="position-absolute inset-0 bg-dark bg-opacity-50 opacity-0 d-flex align-items-center justify-content-center gap-3 transition-opacity overlay-links">
+                                    <div className="position-absolute top-0 start-0 m-2">
+                                        <span className="badge bg-primary rounded-pill px-3 py-2 d-flex align-items-center gap-1">
+                                            {project.icon} {project.tag}
+                                        </span>
+                                    </div>
+                                    <div className="position-absolute inset-0 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center gap-3 overlay-links">
                                         {project.githubLink && (
                                             <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn btn-light rounded-circle p-2">
                                                 <Code size={20} />

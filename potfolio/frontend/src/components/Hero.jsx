@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, Download, MapPin } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 
 const Hero = () => {
-    const titles = ["Full Stack Developer.", "UI/UX Enthusiast.", "Problem Solver."];
+    const titles = ["Frontend Developer.", "Web Developer.", "Full Stack Developer.", "BCA Graduate."];
     const [titleIndex, setTitleIndex] = useState(0);
     const [text, setText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
@@ -33,7 +34,6 @@ const Hero = () => {
 
     return (
         <section id="home" className="min-vh-100 d-flex align-items-center position-relative overflow-hidden pt-5">
-            {/* Background elements - custom CSS in index.css needed for absolute positioning if we avoid Tailwind, we'll use inline styles or bootstrap position utils */}
             <div className="position-absolute rounded-circle animate-blob opacity-25" style={{ top: '25%', left: '25%', width: '400px', height: '400px', backgroundColor: 'var(--bs-primary)', filter: 'blur(100px)', mixBlendMode: 'multiply', zIndex: 0 }}></div>
             <div className="position-absolute rounded-circle animate-blob animation-delay-2000 opacity-25" style={{ top: '33%', right: '25%', width: '400px', height: '400px', backgroundColor: '#6f42c1', filter: 'blur(100px)', mixBlendMode: 'multiply', zIndex: 0 }}></div>
             
@@ -48,14 +48,18 @@ const Hero = () => {
                         <h2 className="text-primary fw-semibold tracking-wide fs-5 mb-3">
                             Hello, I'm
                         </h2>
-                        <h1 className="display-3 fw-bolder mb-4" style={{ letterSpacing: '-0.02em'}}>
+                        <h1 className="display-3 fw-bolder mb-2" style={{ letterSpacing: '-0.02em'}}>
                             Sauraf Kumar
                         </h1>
+                        <div className="d-flex align-items-center justify-content-center justify-content-lg-start gap-2 text-secondary mb-3 small">
+                            <MapPin size={14} />
+                            <span>Indore, Madhya Pradesh</span>
+                        </div>
                         <div className="h2 fw-medium text-secondary mb-4" style={{ minHeight: '3rem'}}>
                             I am a <span className="text-body border-end pe-2">{text}</span>
                         </div>
                         <p className="lead text-secondary mb-5 mx-auto mx-lg-0" style={{ maxWidth: '600px'}}>
-                            I build modern, scalable, and fully responsive web applications using the latest technologies. Turning ideas into real life products is my calling.
+                            BCA graduate from DAVV University & ITEP trainee at Infobeans Foundation. I build modern, scalable, and responsive web applications using React.js, Node.js, and more. Turning ideas into real-life products is my calling.
                         </p>
                         
                         <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
@@ -63,8 +67,8 @@ const Hero = () => {
                                 View Work
                                 <ArrowRight size={18} />
                             </a>
-                            <a href="#" className="btn btn-secondary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center gap-2">
-                                Resume
+                            <a href="#contact" className="btn btn-secondary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center gap-2">
+                                Hire Me
                                 <Download size={18} />
                             </a>
                         </div>
@@ -79,8 +83,8 @@ const Hero = () => {
                         <div className="position-relative" style={{ width: '400px', height: '400px' }}>
                             <div className="position-absolute bg-primary rounded-circle opacity-50" style={{ inset: 0, filter: 'blur(60px)' }}></div>
                             <img 
-                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80" 
-                                alt="Developer Portrait" 
+                                src={profileImg} 
+                                alt="Sauraf Kumar" 
                                 className="w-100 h-100 rounded-circle object-fit-cover position-relative shadow-lg border border-3 border-light"
                                 style={{ zIndex: 10 }}
                             />

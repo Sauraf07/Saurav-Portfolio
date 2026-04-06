@@ -26,7 +26,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <nav className={`navbar navbar-expand-md fixed-top transition-all duration-300 ${isScrolled ? 'glass-panel py-2' : 'bg-transparent py-4'}`} style={{ zIndex: 1030 }}>
       <div className="container">
         <a className="navbar-brand fw-bold text-primary nav-link fs-4" href="#home" style={{ letterSpacing: '-0.05em' }}>
-          Portfolio<span className="text-body">.</span>
+          Sauraf<span className="text-body">.</span>
         </a>
         
         {/* Mobile controls */}
